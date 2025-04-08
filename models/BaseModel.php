@@ -7,10 +7,9 @@ class BaseModel implements DatabaseWrapper
     protected PDO $pdo;
     protected string $table;
 
-    public function __construct(PDO $pdo, string $table)
+    public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
-        $this->table = $table;
     }
 
     public function insert(array $columns, array $values): array

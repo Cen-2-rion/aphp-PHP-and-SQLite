@@ -2,12 +2,15 @@
 
 require_once __DIR__ . '/database/shop.php';
 require_once __DIR__ . '/models/BaseModel.php';
+require_once __DIR__ . '/classes/Shop.php';
+require_once __DIR__ . '/classes/Client.php';
+require_once __DIR__ . '/classes/Order.php';
 
 $pdo = new PDO('sqlite:shop.db');
 
-$shop = new BaseModel($pdo, 'shop');
-$client = new BaseModel($pdo, 'client');
-$order = new BaseModel($pdo, '"order"');
+$shop = new Shop($pdo);
+$client = new Client($pdo);
+$order = new Order($pdo);
 
 // добавляем магазин
 $addShop = $shop->insert(['name', 'address'], ['Магнит', 'ул. Ленина, 15']);
